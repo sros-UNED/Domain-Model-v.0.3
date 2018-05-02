@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schemas/use-cases.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="schemas/validation-useCases.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<root>
+    <source ref="http://www.folklore.ee/regilaul/andmebaas/" /> 
+    <metadata>
+        <creator>Patrícia Garrido Teixeira</creator>
+        <editor>Mariana Curado Malta</editor>
+        <date format="ISO8601">20171204</date>
+        <title>POSTDATA|Use-Case Estonian Runic Songs</title>
+        <repertory>Eesti regilaulude andmebaas (III)</repertory>
+        <description>A test of the Domain Model v1.0 with a resource from the database Estonian Runic Songs</description>
+        
+    </metadata>
+ <class>
+    <name>Opus</name>
+    <instance>
+        <label>Opus1</label>
+        <properties>
+            <objectProperty corresp="realises" cardinality="*">
+                <name>isRealisedThrough</name>
+                <range>Redaction1</range>
+            </objectProperty>
+           
+            <dataProperty range="xs:string" cardinality="*">
+                <name>date</name>
+                <value>1932</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="*">
+                <name>title</name>
+                <value>Kadri laul</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+<class>
+    <name>Redaction</name>
+    <instance>
+        <label>Redaction1</label>
+        <properties>
+            <objectProperty corresp="isConsideredBy" cardinality="*">
+                <name>considers</name>
+                <range>Witness1</range>
+            </objectProperty>
+            <objectProperty  cardinality="*">
+                <name>hasFirstLine</name>
+                <range>Line1</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>date</name>
+                <value>1932</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cv="yes" cardinality="*">
+                <name>typeOfRedaction</name>
+                <value>critical edition</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+<class>
+    <name>Line</name>
+    <instance>
+        <label>Line1</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line2</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Emakene, memmekene,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line2</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line3</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Pane see tütar mehele,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line3</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line4</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Mis käib müüda õuesid,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line4</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line5</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Udupea ja udujuuksed,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line5</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line6</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Kenad käiksed tal käessa!</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>nextPageNumber</name>
+                <value>10</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line6</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line7</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Kui ei pane, ei palugi -</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line7</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line8</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Jäägu koeo kopitsema,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line8</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line9</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Aea ääre allitama,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line9</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line10</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Seena ääre seenetama.</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line10</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line11</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Kask tal kasku kaela peale</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line11</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line12</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Niinepuu nisade peale,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line12</label>
+        <properties>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Kuusik silmakulmu peale,</value>
+            </dataProperty>
+        </properties>
+    </instance>
+    <instance>
+        <label>Line13</label>
+        <properties>
+            <objectProperty  cardinality="*">
+                <name>nextLine</name>
+                <range>Line13</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>content</name>
+                <value>Kadakas karvade vahele.</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+<class>
+    <name>Witness</name>
+    <instance>
+        <label>Witness1</label>
+        <properties>
+            <objectProperty>
+                <name>hasRole</name>
+                <range>Role1</range>
+            </objectProperty>
+            <objectProperty corresp="asPart" cardinality="*">
+                <name>isPart</name>
+                <range>PrimarySource1</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="?">
+                <name>locus</name>
+                <value>pages 9-10</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+<class>
+    <name>PrimarySource</name>
+    <instance>
+        <label>PrimarySource1</label>
+        <properties>
+            <objectProperty corresp="hasItem" cardinality="?">
+                <name>belongsTo</name>
+                <range>Repository1</range>
+            </objectProperty>
+            <objectProperty cardinality="?">
+                <name>isFrom</name>
+                <range>Place1</range>
+            </objectProperty>
+            <dataProperty range="xs:string" cardinality="*">
+                <name>siglum</name>
+                <value>AES, MT 93</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+    
+    <class>
+        <name>Role</name>
+        <instance>
+            <label>Role1</label>
+            <properties>
+                <dataProperty>
+                    <name>function</name>
+                    <value>collector</value>
+                </dataProperty>
+                <objectProperty>
+                    <name>isAssignedTo</name>
+                    <range>Person1</range>
+                </objectProperty>
+            </properties>
+        </instance>
+    </class>
+<class>
+    <name>Person</name>
+    <instance>
+        <label>Person1</label>
+        <properties>
+            <dataProperty range="xs:string" cardinality="*">
+                <name>name</name>
+                <value>P.Palmeos</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+<class>
+    <name>Repository</name>
+    <instance>
+        <label>Repository1</label>
+        <properties>
+            <dataProperty range="xs:string" cardinality="*">
+                <name>name</name>
+                <value>Juuru khk</value>
+            </dataProperty>
+        </properties>
+    </instance>
+</class>
+<class>
+    <name>Place</name>
+    <instance>
+        <label>Place1</label>
+    <properties>
+        <dataProperty range="xs:string" cardinality="?">
+            <name>settlement</name>
+            <value>Kaiu v.</value>
+        </dataProperty>
+        <dataProperty range="xs:string" cardinality="?">
+            <name>region</name>
+            <value>Toomja k.</value>
+        </dataProperty>
+    </properties>
+    </instance>
+</class>
+</root>

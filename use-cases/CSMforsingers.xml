@@ -1,0 +1,3242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schemas/use-cases.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="schemas/validation-useCases.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<root>
+   <source ref="http://www.cantigasdesantamaria.com/csm/3"/>
+   <metadata>
+      <creator>Patrícia Garrido Teixeira</creator>
+      <creator>Mariana Curado Malta </creator>
+      <editor>Mariana Curado Malta</editor>
+      <date format="ISO8601">20171204</date>
+      <title>POSTDATA|Use-Case Cantigas de Santa Maria for Singers</title>
+      <repertory>Cantigas de Santa Maria for Singers</repertory>
+      <description>A test of the Domain Model v1.0 with a resource from the database CSM for Singers
+         - see source</description>
+      <comments>Since the images of the musical transcriptions are created on-the-fly, we have used
+         the link provided for the images even if they were not URL. We know it is not a URl but the
+         idea was to show that the model works.</comments>
+   </metadata>
+
+   <class>
+      <name>Opus</name>
+      <instance>
+         <label>Opus1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value>Mais nos faz Santa María</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isRealisedThrough</name>
+               <range>Redaction1</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Redaction</name>
+      <instance>
+         <label>Redaction1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>originalTitle</name>
+               <value>Mais nos faz Santa Maria</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstStanza</name>
+               <range>StanzaRefrain</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>WorkPattern1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isUsedIn</name>
+               <range>Performance1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isUsedIn</name>
+               <range>Performance2</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isUsedIn</name>
+               <range>Performance3</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isUsedIn</name>
+               <range>Performance4</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isUsedIn</name>
+               <range>Performance5</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>hasItem</name>
+               <range>Paratext1</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>considers</name>
+               <range>Witness1</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>considers</name>
+               <range>Witness2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>considers</name>
+               <range>Witness3</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>isReferencedIn</name>
+               <range>Location1</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>retrievesText</name>
+               <range>Location2</range>
+            </objectProperty>
+
+
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Stanza</name>
+      <instance>
+         <label>StanzaRefrain</label>
+         <properties>
+            <dataProperty range="xs:int">
+               <name>stanzaNumber</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>SP1</range>
+            </objectProperty>
+            <objectProperty corresp="isPartOf">
+               <name>hasFirstLine</name>
+               <range>Line1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Stanza1</label>
+         <properties>
+            <dataProperty range="xs:int">
+               <name>stanzaNumber</name>
+               <value>2</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isRefrainOmitted</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza2</range>
+            </objectProperty>
+
+            <objectProperty corresp="isPartOf">
+               <name>hasFirstLine</name>
+               <range>Line5</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Stanza2</label>
+         <properties>
+            <dataProperty range="xs:int">
+               <name>stanzaNumber</name>
+               <value>3</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isRefrainOmitted</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza3</range>
+            </objectProperty>
+            <objectProperty corresp="isPartOf">
+               <name>hasFirstLine</name>
+               <range>Line13</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Stanza3</label>
+         <properties>
+            <dataProperty range="xs:int">
+               <name>stanzaNumber</name>
+               <value>4</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isRefrainOmitted</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza4</range>
+            </objectProperty>
+            <objectProperty corresp="isPartOf">
+               <name>hasFirstLine</name>
+               <range>Line21</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Stanza4</label>
+         <properties>
+            <dataProperty range="xs:int">
+               <name>stanzaNumber</name>
+               <value>5</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isRefrainOmitted</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza5</range>
+            </objectProperty>
+            <objectProperty corresp="isPartOf">
+               <name>hasFirstLine</name>
+               <range>Line29</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Stanza5</label>
+         <properties>
+            <dataProperty range="xs:int">
+               <name>stanzaNumber</name>
+               <value>6</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isRefrainOmitted</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty corresp="isPartOf">
+               <name>hasFirstLine</name>
+               <range>Line37</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+   </class>
+
+
+   <class>
+      <name>Line</name>
+      <instance>
+         <label>LineRefrain1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Mais nos faz Santa María...</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>isRefrain</name>
+               <value>yes</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>1</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Mais nos faz Santa María</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>isRefrain</name>
+               <value>yes</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line2</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>2</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>a séu Fillo perdõar,</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>isRefrain</name>
+               <value>yes</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line3</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>3</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>que nós per nóssa folía</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>isRefrain</name>
+               <value>yes</value>
+            </dataProperty>
+
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern3</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme1</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line4</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line4</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>4</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ll' imos falir e errar.</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>isRefrain</name>
+               <value>yes</value>
+            </dataProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern4</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line5</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>5</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Por ela nos perdõou</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern5</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme3</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line6</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line6</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>6</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Déus o pecado d' Adán</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern6</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme8</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line7</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line7</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>da maçãa que gostou,</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern7</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme3</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line8</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line8</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>8</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>per que sofreu muit' afán</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern8</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme8</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line9</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line9</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>9</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>e no inférno entrou;</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern9</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme3</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line10</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line10</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>10</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>mais a do mui bon talán</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern10</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme8</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line11</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line11</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>11</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>tant' a séu Fillo rogou,</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern11</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme3</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line12</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line12</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>12</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>que o foi end' el sacar.</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern12</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>LineRefrain1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line13</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>13</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Pois ar fez perdôn aver</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern13</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme4</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line14</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line14</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>14</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>a Teófilo, un séu</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern14</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme9</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line15</range>
+            </objectProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line15</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>15</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>sérvo, que fora fazer</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern15</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme4</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line16</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line16</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>16</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>per conssello dun judéu</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern16</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme9</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line17</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line17</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>17</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>carta por gãar poder</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern17</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme4</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line18</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line18</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>18</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>cono démo, e lla déu;</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern18</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme9</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line19</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line19</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>19</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>e fez-ll' en Déus descreer,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern19</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme4</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line20</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line20</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>20</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>des i a ela negar.</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern20</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>LineRefrain1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line21</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>21</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Pois Teófilo assí</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern21</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme5</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line22</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line22</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>22</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>fez aquesta traïçôn,</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern22</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme10</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line23</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line23</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>22</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>per quant' end' éu aprendí,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern23</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme5</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line24</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line24</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>24</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>foi do démo gran sazôn;</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern24</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme10</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line25</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>Line25</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>25</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>mais depois, segund' oí,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern25</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme5</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line26</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line26</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>26</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>repentiu-s' e foi perdôn</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern26</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme10</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line27</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line27</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>27</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>pedir lógo, ben alí</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern27</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme5</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line28</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line28</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>28</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>u pecador sól achar.</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern28</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line29</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line29</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>29</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Chorando dos ollos séus</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern29</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme6</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line30</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line30</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>30</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>muito, foi perdôn pedir,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern30</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme11</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line31</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line31</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>31</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>u viu da Madre de Déus</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern31</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme6</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line32</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line32</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>32</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>a omagen; sen falir</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern32</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme11</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line33</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line33</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>33</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>lle diss': “Os pecados méus</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern33</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme6</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line34</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line34</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>34</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>son tan muitos, sen mentir,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern34</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme11</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line35</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line35</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>35</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>que, se non per rógos téus,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern35</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme6</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line36</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line36</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>36</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>non póss' éu perdôn gãar.”</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern36</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>LineRefrain1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line37</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>37</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Teófilo dessa vez</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern37</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme7</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line38</range>
+            </objectProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line38</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>38</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>chorou tant' e non fez al,</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern38</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme12</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line39</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line39</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>39</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>trões u a que de prez</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern39</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme7</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line40</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line40</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>40</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>todas outras donas val,</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern40</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme12</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line41</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line41</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>41</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ao démo mais ca pez</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern41</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme7</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line42</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line42</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>42</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>negro do fógu' infernal</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern42</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme12</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line43</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line43</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>43</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>a carta trager-lle fez,</value>
+            </dataProperty>
+
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern43</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme7</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line44</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line44</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>44</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>e déu-lla ant' o altar.</value>
+            </dataProperty>
+            <objectProperty corresp="analyses">
+               <name>isAnalysedThrough</name>
+               <range>LinePattern44</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>presents</name>
+               <range>Rhyme2</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>nextLine</name>
+               <range>LineRefrain1</range>
+            </objectProperty>
+
+         </properties>
+      </instance>
+   </class>
+
+
+   <class>
+      <name>LinePattern</name>
+
+      <instance>
+         <label>LinePattern1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7'</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>mai̯s nos faʣ santa maɾi.a</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Mais nos faz San•ta Ma•rí•a</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern2</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>a sɛu̯ fiʎo peɾdoŋaɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>a séu Fi•llo per•dõ•ar,</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern3</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7'</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ke nɔs peɾ nɔsa foli.a</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>que nós per nó•ssa fo•lí•a</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern4</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ʎimos faliɾ e erraɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>ll' i•mos fa•lir e e•rrar.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern5</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>poɾ ela nos peɾdoŋou̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Por e•la nos per•dõ•ou</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern6</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>dɛu̯s o pekado dadaŋ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Déus o pe•ca•do d' A•dán</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern7</label>
+         <properties>
+
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>da maʦaŋa ke gostou̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>da ma•çã•a que gos•tou,</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern8</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>peɾ ke sofɾeu̯ mui̯tafaŋ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>per que so•freu mui•t' a•fán</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern9</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>e no iŋfɛɾno entɾou̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>e no in•fér•no en•trou;</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern10</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>mai̯s a do mui̯ boŋ talaŋ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>mais a do mui bon ta•lán</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern11</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>tanta sɛu̯ fiʎo rrogou̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>tan•t' a séu Fi•llo ro•gou,</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern12</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ke o foi̯ endel sakaɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>que o foi en•d' el sa•car.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern13</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>poi̯s aɾ feʣ peɾdoŋ aβeɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Pois ar fez per•dôn a•ver</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern14</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>a te.ɔfilo uŋ sɛu̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>a Te•ó•fi•lo, un séu</value>
+            </dataProperty>
+         </properties>
+
+      </instance>
+
+      <instance>
+         <label>LinePattern15</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>sɛɾβo ke foɾa faʣeɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>sér•vo, que fo•ra fa•zer</value>
+            </dataProperty>
+         </properties>
+
+      </instance>
+
+      <instance>
+         <label>LinePattern16</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>peɾ koŋseʎo duŋ ʤudɛu̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>per con•sse•llo dun ju•déu</value>
+            </dataProperty>
+         </properties>
+
+      </instance>
+
+      <instance>
+         <label>LinePattern17</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>kaɾta poɾ gaŋaɾ podeɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>car•ta por gã•ar po•der</value>
+            </dataProperty>
+         </properties>
+
+      </instance>
+      <instance>
+         <label>LinePattern18</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>kono dɛmo e ʎa dɛu̯</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>co•no dé•mo, e lla déu;</value>
+            </dataProperty>
+         </properties>
+
+
+      </instance>
+
+      <instance>
+         <label>LinePattern19</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>e feʣ ʎeŋ dɛu̯s deskɾe.eɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>e fez-ll' en Déus des•cre•er,</value>
+            </dataProperty>
+         </properties>
+
+
+      </instance>
+
+      <instance>
+         <label>LinePattern20</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>des i a ela negaɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>des i a e•la ne•gar.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern21</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>poi̯s te.ɔfilo asi</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Pois Te•ó•fi•lo a•ssí</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern22</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>feʣ akesta tɾa.iʦoŋ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>fez a•ques•ta tra•ï•çôn,</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern23</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>peɾ ku̯antendɛu̯ apɾendi</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>per quan•t' en•d' éu a•pren•dí,</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern24</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>foi̯ do dɛmo gɾaŋ saʣoŋ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>foi do dé•mo gran sa•zôn;</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern25</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>mai̯s depoi̯s segundo.i</value>
+            </dataProperty>
+
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>mais de•pois, se•gun•d' o•í,</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern26</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>rrepentiu̯ se foi̯ peɾdoŋ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>re•pen•tiu-s' e foi per•dôn</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern27</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>pediɾ lɔgo beŋ ali</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>pe•dir ló•go, ben a•lí</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern28</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>u pekadoɾ sɔl aʧaɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>u pe•ca•dor sól a•char.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern29</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ʧoɾando dos oʎos sɛu̯s</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Cho•ran•do dos o•llos séus</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern30</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>mui̯to foi̯ peɾdoŋ pediɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>mui•to, foi per•dôn pe•dir,</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern31</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>u βiu̯ da madɾe de dɛu̯s</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>u viu da Ma•dre de Déus</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern32</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>a omaʤeŋ seŋ faliɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>a o•ma•gen; sen fa•lir</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern33</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ʎe disos pekados mɛu̯s</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>lle di•ss': “Os pe•ca•dos méus</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern34</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>soŋ taŋ mui̯tos seŋ mentiɾ</value>
+            </dataProperty>
+
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>son tan mui•tos, sen men•tir,</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern35</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ke se noŋ peɾ rrɔgos tɛu̯s</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>que, se non per ró•gos téus,</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern36</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>noŋ pɔsɛu̯ peɾdoŋ gaŋaɾ</value>
+            </dataProperty>
+
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>non pó•ss' éu per•dôn gã•ar.”</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern37</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>te.ɔfilo desa βeʣ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>Te•ó•fi•lo de•ssa vez</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern38</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>ʧoɾou̯ tante noŋ feʣ al</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>cho•rou tan•t' e non fez al,</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern39</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>tɾoŋes u a ke de pɾeʣ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>trõ•es u a que de prez</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern40</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>todas ou̯tɾas donas βal</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>to•das ou•tras do•nas val,</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern41</label>
+         <properties>
+
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>a.o dɛmo mai̯s ka peʣ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>a•o dé•mo mais ca pez</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern42</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>ne•gro do fó•gu' in•fer•nal</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>negɾo do fɔgiŋfeɾnal</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern43</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+
+
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>a kaɾta tɾaʤeɾ ʎe feʣ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>a car•ta tra•ger-lle fez,</value>
+            </dataProperty>
+
+
+         </properties>
+      </instance>
+
+      <instance>
+         <label>LinePattern44</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string" cardinality="?">
+               <name>phoneticTranscription</name>
+               <value>e dɛu̯ ʎa anto altaɾ</value>
+            </dataProperty>
+            <dataProperty>
+               <name>scannedLine</name>
+               <value>e déu-lla an•t' o al•tar.</value>
+            </dataProperty>
+
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Rhyme</name>
+      <instance>
+         <label>Rhyme1</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>A</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>i.a</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme2</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>B</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>aɾ</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Rhyme3</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>c</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>ou̯</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme4</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>c</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>eɾ</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme5</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>c</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>i</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme6</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>c</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>ɛu̯s</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme7</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>c</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>eʣ</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme8</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>d</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>aŋ</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme9</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>d</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>ɛu̯</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme10</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>d</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>oŋ</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme11</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>d</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>iɾ</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhyme12</label>
+         <properties>
+            <dataProperty>
+               <name>label</name>
+               <value>d</value>
+            </dataProperty>
+            <dataProperty>
+               <name>ending</name>
+               <value>al</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+
+   <class>
+      <name>Paratext</name>
+      <instance>
+         <label>Paratext1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>editedContent</name>
+               <value>Esta é como Santa María fez cobrar a Teófilo a carta que fezéra cono démo, u
+                  se tornou séu vassalo.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Creator</name>
+      <instance>
+         <label>Creator1</label>
+         <properties>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Person</name>
+      <instance>
+         <label>Person1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>name</name>
+               <value>Walater</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>surname</name>
+               <value>Mettman</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+   </class>
+
+   <class>
+      <name>Performance</name>
+      <instance>
+         <label>Performance1</label>
+         <properties>
+            <dataProperty>
+               <name>tempo</name>
+               <value>Very Slow</value>
+            </dataProperty>
+            <dataProperty>
+               <name>time</name>
+               <value>9:11</value>
+            </dataProperty>
+            <dataProperty>
+               <name>syllablesPerMinute</name>
+               <value>50</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Performance2</label>
+         <properties>
+            <dataProperty>
+               <name>tempo</name>
+               <value>Slow</value>
+            </dataProperty>
+            <dataProperty>
+               <name>time</name>
+               <value>4:35</value>
+            </dataProperty>
+            <dataProperty>
+               <name>syllablesPerMinute</name>
+               <value>100</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Performance3</label>
+         <properties>
+            <dataProperty>
+               <name>tempo</name>
+               <value>Medium</value>
+            </dataProperty>
+            <dataProperty>
+               <name>time</name>
+               <value>3:04</value>
+            </dataProperty>
+            <dataProperty>
+               <name>syllablesPerMinute</name>
+               <value>150</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Performance4</label>
+         <properties>
+            <dataProperty>
+               <name>tempo</name>
+               <value>Fast</value>
+            </dataProperty>
+            <dataProperty>
+               <name>time</name>
+               <value>2:17</value>
+            </dataProperty>
+            <dataProperty>
+               <name>syllablesPerMinute</name>
+               <value>200</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Performance5</label>
+         <properties>
+            <dataProperty>
+               <name>tempo</name>
+               <value>Very Fast</value>
+            </dataProperty>
+            <dataProperty>
+               <name>time</name>
+               <value>1:50</value>
+            </dataProperty>
+            <dataProperty>
+               <name>syllablesPerMinute</name>
+               <value>250</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+   </class>
+   <class>
+      <name>Witness</name>
+      <instance>
+         <label>Witness1</label>
+         <properties>
+            <objectProperty>
+               <name>isReproducedIn</name>
+               <range>Facsimile1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isPart</name>
+               <range>PrimarySource1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>hasMusicalNotation</name>
+               <range>MusicalNotation1</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>hasMusicalNotation</name>
+               <range>MusicalNotation6</range>
+            </objectProperty>
+
+            <objectProperty>
+               <name>hasMusicalNotation</name>
+               <range>MusicalNotation11</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Witness2</label>
+         <properties>
+            <objectProperty>
+               <name>isPart</name>
+               <range>PrimarySource2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Witness3</label>
+         <properties>
+            <objectProperty>
+               <name>isReproducedIn</name>
+               <range>Facsimile2</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isPart</name>
+               <range>PrimarySource3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Facsimile</name>
+      <instance>
+         <label>Facsimile1</label>
+         <properties>
+            <dataProperty range="xs:anyURI">
+               <name>url</name>
+               <value>http://www.pbm.com/~lindahl/cantigas/facsimiles/E/057small.html</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Facsimile2</label>
+         <properties>
+            <dataProperty range="xs:anyURI">
+               <name>url</name>
+               <value>http://www.pbm.com/~lindahl/cantigas/facsimiles/To/bob003small.gif</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextPage</name>
+               <range>Facsimile3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Facsimile3</label>
+         <properties>
+            <dataProperty range="xs:anyURI">
+               <name>url</name>
+               <value>http://www.pbm.com/~lindahl/cantigas/facsimiles/To/bob004small.gif</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+   </class>
+
+   <class>
+      <name>PrimarySource</name>
+      <instance>
+         <label>PrimarySource1</label>
+         <properties>
+            <dataProperty>
+               <name>siglum</name>
+               <value>E</value>
+            </dataProperty>
+            <dataProperty>
+               <name>title</name>
+               <value>codice princeps</value>
+            </dataProperty>
+            <dataProperty>
+               <name>altTitle</name>
+               <value>códice de los músicos</value>
+            </dataProperty>
+            <dataProperty>
+               <name>notes</name>
+               <value>The Escorial "codice princeps" (principal codex, signature j.b.2), held in the
+                  Real Biblioteca de San Lorenzo de El Escorial outside Madrid. Also known in
+                  Spanish as the códice de los músicos—the musicians' codex—due to the well-known
+                  and oft-reproduced miniatures of performers and their instruments that appear
+                  before each of the Cantigas de Loor. This is by far the largest of the
+                  manuscripts, though modest in decoration compared to [T] and [F]. It contains the
+                  prologues and 406 of the cantigas, nine of which are repeated with mostly minor
+                  variations, and provides the basis for Mettmann's numbering scheme, which I use on
+                  this website.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>PrimarySource2</label>
+         <properties>
+            <dataProperty>
+               <name>siglum</name>
+               <value>T</value>
+            </dataProperty>
+            <dataProperty>
+               <name>title</name>
+               <value>codice rico</value>
+            </dataProperty>
+            <dataProperty>
+               <name>notes</name>
+               <value>the Escorial "codice rico" (rich codex), also in the El Escorial library,
+                  known as [T] from its manuscript signature T.j.1. Contains the prologues and 195
+                  of the cantigas (originally 203, but eight are missing due to the loss of folios),
+                  roughly corresponding to the first half of [E].</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>PrimarySource3</label>
+         <properties>
+            <dataProperty>
+               <name>siglum</name>
+               <value>To</value>
+            </dataProperty>
+            <dataProperty>
+               <name>title</name>
+               <value>Toledo</value>
+            </dataProperty>
+            <dataProperty>
+               <name>notes</name>
+               <value>the "Toledo" codex, now in the National Library of Madrid. It includes 129
+                  cantigas, which are apparently amongst the oldest in terms of authorship. Mettmann
+                  considered the manuscript itself to be the youngest copy of the four, possibly
+                  from the start of the 14th century. Ferreira, on the other hand, considers it to
+                  be ‘the oldest surviving source’ from no later than 1280.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>MusicalNotation</name>
+      <instance>
+         <label>MusicalNotation1</label>
+         <properties>
+            <dataProperty range="xs:string" cardinality="*">
+               <name>typeOfMusicalNotation</name>
+               <value>Annotated transcription (diplomatic transcription)</value>
+            </dataProperty>
+            <dataProperty>
+               <name>editionNotes</name>
+               <value>E1:The word nos is repeated on this stave in the manuscript, but is not
+                  assigned another note or ligature. E2:See E4. E3:This is a custos indicating the
+                  pitch of the note after the page break: these are commonplace in [To] but as far
+                  as I am aware this is the only one in [E]. By the way, all the custodes (pl.) in
+                  [To] have their stems down, so that's how they are rendered here, even though this
+                  one has its stem up in [E]. E4:Compare this odd-looking ligature (for one
+                  syllable) with the pair of separate notes at E2 in the refrain. E5:This line
+                  appears very faint in the manuscript facsimile. E6:The word a is repeated at the
+                  start of this stave, but is not assigned a note or ligature.</value>
+            </dataProperty>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+               <value>blob:null/3db0b7bc-b426-4d5e-8d81-61324c6bb7c0</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation2</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+               <value>blob:null/789e9ed8-0093-4db3-9436-8c6cfaf432ff</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation3</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+               <value>blob:null/12de2795-56cf-41bd-8b48-e5b2485bc3b7</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation4</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation4</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/2a2c7ecb-c286-45dc-8288-8037726b7524</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation5</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation5</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/67213e2c-5c86-4c4d-a709-0464ef0694bf</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>MusicalNotation6</label>
+         <properties>
+            <dataProperty range="xs:string" cardinality="*">
+               <name>typeOfMusicalNotation</name>
+               <value>Squase notation</value>
+            </dataProperty>
+
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+               <value>blob:null/78c8be00-5ea7-48a7-9f4d-5af081abc296</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation7</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation7</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/3e717039-bad6-4818-b6e0-88908b30ab99</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation8</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation8</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/a1e15e10-45aa-470c-b228-e6978233d697</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation9</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation9</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/7d092dcc-6f42-47f0-bed8-247ca5280772</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation10</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation10</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/6fc71f28-d8ba-40a7-ab18-178647df544c</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>MusicalNotation11</label>
+         <properties>
+            <dataProperty range="xs:string" cardinality="*">
+               <name>typeOfMusicalNotation</name>
+               <value>Round notation</value>
+            </dataProperty>
+
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+               <value>blob:null/cc8bdfd0-8573-4dea-a877-40f7e48a0b31</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation12</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation12</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/4ab0ce4d-a42e-4f22-9337-0c19c16e9b07</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation13</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation13</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/ffcc08f8-e25e-4b37-be9f-f2c293cd6e78</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation14</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation14</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/f9ff40bc-8422-4835-bdf4-9bfd991547c8</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextTranscription</name>
+               <range>MusicalNotation15</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>MusicalNotation15</label>
+         <properties>
+            <dataProperty range="xs:anyURI" cardinality="*">
+               <name>imageOftranscription</name>
+
+               <value>blob:null/7ac0cb0f-45ab-400b-bf44-c37e6e4743a4</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+
+   <class>
+      <name>Location</name>
+      <instance>
+         <label>Location1</label>
+         <properties>
+            <dataProperty>
+               <name>url</name>
+               <value>http://csm.mml.ox.ac.uk/index.php?p=poemdata_view&amp;rec=3</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Location2</label>
+         <properties>
+            <dataProperty>
+               <name>workNumber</name>
+               <value>3</value>
+            </dataProperty>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>BibliographicSource</name>
+      <instance>
+         <label>BibliographicSource1</label>
+         <properties>
+            <dataProperty>
+               <name>title</name>
+               <value>Afonso X, o Sábio: Cantigas de Santa Maria</value>
+            </dataProperty>
+            <dataProperty>
+               <name>pubPlace</name>
+               <value>Madrid</value>
+            </dataProperty>
+            <dataProperty>
+               <name>publisher</name>
+               <value>Castalia</value>
+            </dataProperty>
+            <dataProperty>
+               <name>numberOfVolumes</name>
+               <value>3</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>date</name>
+               <value>1959–1972</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasCreator</name>
+               <range>Creator1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>StanzaPattern</name>
+      <instance>
+         <label>SP1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7' 7 7' 7</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>WorkPattern</name>
+      <instance>
+         <label>WorkPattern1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>syllabicMetricalScheme</name>
+               <value>7 7 7 7 7 7 7 7</value>
+            </dataProperty>
+
+            <dataProperty range="xs:string">
+               <name>rhymeScheme</name>
+               <value>ABAB/cdcdcdcdcB</value>
+            </dataProperty>
+            <dataProperty range="xs:int" cardinality="?">
+               <name>numberOfStanzas</name>
+               <value>5</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+</root>

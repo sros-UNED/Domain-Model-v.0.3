@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schemas/use-cases.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="schemas/validation-useCases.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<root>
+   <source ref="http://poetry.obdurodon.org/verseTables/GippiusNeLiubov.xhtml"/>
+   <metadata>
+      <creator>Helena Bermúdez-Sabel</creator>
+      <date format="ISO8601">20171204</date>
+      <title>POSTDATA|Use-Case MedDB - Obdurodon Database</title>
+      <repertory>Russian Poetry (Birnbaum—Thorsen)</repertory>
+      <description>A test of the Domain Model v1.0 with a resource from the database Obdurodon - see
+         source</description>
+      <comments>Important: the contents of each line are expressed as the data property
+         content.Line. However, it would have been more accurate to divide the line in syllables so
+         as to use the property: isStressed.Syllable in order to retrieve the stressed vowels (as in
+         the source). Ignorance of syllable structure in Russian make it impossible for the encoder
+         to model the contents that way.</comments>
+   </metadata>
+
+
+   <class>
+      <name>Opus</name>
+      <instance>
+         <label>Opus1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value xml:lang="ru">Нелюбовь</value>
+            </dataProperty>
+            <objectProperty corresp="creates">
+               <name>hasCreator</name>
+               <range>Creator1</range>
+            </objectProperty>
+            <objectProperty corresp="realises">
+               <name>isRealisedThrough</name>
+               <range>Redaction1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+<class>
+   <name>Creator</name>
+   <instance>
+      <label>Creator1</label>
+      <properties>
+         <objectProperty>
+            <name>isA</name>
+            <range>Person1</range>
+         </objectProperty>
+      </properties>
+   </instance>
+</class>
+   <class>
+      <name>Person</name>
+      <instance>
+         <label>Person1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>name</name>
+               <value xml:lang="ru">Зинаида Николаевна Гиппиус</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>name</name>
+               <value xml:lang="ru">В. Венгеровой</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Redaction</name>
+      <instance>
+         <label>Redaction1</label>
+         <properties>
+            <objectProperty corresp="isFirstStanzaOf">
+               <name>hasFirstStanza</name>
+               <range>Stanza1</range>
+            </objectProperty>
+            <objectProperty corresp="hasDedication">
+               <name>isDedicatedTo</name>
+               <range>Person2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Stanza</name>
+      <instance>
+         <label>Stanza1</label>
+         <properties>
+            <objectProperty corresp="isFirstLineOf">
+               <name>hasFirstLine</name>
+               <range>Line1</range>
+            </objectProperty>
+            <objectProperty corresp="previousStanza">
+               <name>nextStanza</name>
+               <range>Stanza2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza2</label>
+         <properties>
+            <objectProperty corresp="isFirstLineOf">
+               <name>hasFirstLine</name>
+               <range>Line5</range>
+            </objectProperty>
+            <objectProperty corresp="previousStanza">
+               <name>nextStanza</name>
+               <range>Stanza3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza3</label>
+         <properties>
+            <objectProperty corresp="isFirstLineOf">
+               <name>hasFirstLine</name>
+               <range>Line9</range>
+            </objectProperty>
+            <objectProperty corresp="previousStanza">
+               <name>nextStanza</name>
+               <range>Stanza4</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza4</label>
+         <properties>
+            <objectProperty corresp="isFirstLineOf">
+               <name>hasFirstLine</name>
+               <range>Line13</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Line</name>
+      <instance>
+         <label>Line1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>1</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Как ветер мокрый, ты бьёшься в ставни,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern1</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line2</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>2</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Как ветер чёрный, поёшь: ты мой!</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern2</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line3</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>3</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Как ветер чёрный, поёшь: ты мой!</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern3</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line4</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line4</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>4</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Твой друг единый,— открой, открой!</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern4</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line5</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>5</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Держу я ставни, открыть не смею,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern5</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line6</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line6</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>6</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Держусь за ставни и страх таю.</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern6</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line7</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line7</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>7</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Храню, лелею, храню, жалею</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern7</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line8</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line8</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>8</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Мой луч последний— любовь мою.</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern8</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line9</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>9</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Смеется хаос, зовет безокий:</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern9</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line10</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line10</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>10</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Умрешь в оковах,— порви, порви!</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern10</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line11</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line11</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>11</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Ты знаешь счастье, ты одинокий,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern11</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line12</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line12</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>12</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">В свободе счастье— и в Нелюбви.</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern12</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line13</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>13</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Охладевая, творю молитву,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern13</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line14</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line14</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>14</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Любви молитву едва творю...</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern14</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line15</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line15</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>15</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Слабеют руки, кончаю битву,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern15</range>
+            </objectProperty>
+            <objectProperty corresp="previousLine">
+               <name>nextLine</name>
+               <range>Line16</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>RhymeA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line16</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>lineNumber</name>
+               <value>16</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value xml:lang="ru">Слабеют руки, кончаю битву,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>LinePattern16</range>
+            </objectProperty>
+            <objectProperty corresp="isPresentIn">
+               <name>presents</name>
+               <range>Rhymeb</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>LinePattern</name>
+      <instance>
+         <label>LinePattern1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>E O O A</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>E O O O</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootB</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>E A U A</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern4</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>U I O O</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootB</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern5</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>U A I E</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern6</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>U A A U</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootB</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern7</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>U E U E</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern8</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>U E O U</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootB</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern9</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>O A O O</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern10</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>O O I I</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootB</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern11</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>A A O</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootC</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern12</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>O A I</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootD</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern13</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>A U I</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootE</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern14</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>I I A U</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootB</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern15</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>E U A I</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootA</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>LinePattern16</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>accentedVowels</name>
+               <value>E U U</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstFoot</name>
+               <range>FootF</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Foot</name>
+      <instance>
+         <label>FootA</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot2a</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot2a</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFootAfterCaesura</name>
+               <range>Foot3a</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot3a</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot4a</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot4a</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>FootB</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot2b</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot2b</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFootAfterCaesura</name>
+               <range>Foot3b</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot3b</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot4b</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot4b</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>FootC</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot2c</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot2c</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFootAfterCaesura</name>
+               <range>Foot3c</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot3c</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>oo</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isIrregular</name>
+               <value>true</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot4c</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot4c</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>FootD</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot2d</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot2d</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFootAfterCaesura</name>
+               <range>Foot3d</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot3d</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>oo</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isIrregular</name>
+               <value>true</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot4d</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot4d</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>FootE</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot2e</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot2e</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>oo(o)</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isIrregular</name>
+               <value>true</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFootAfterCaesura</name>
+               <range>Foot3e</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot3e</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot4e</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot4e</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>FootF</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot2f</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot2f</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox(o)</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFootAfterCaesura</name>
+               <range>Foot3f</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot3f</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>oo</value>
+            </dataProperty>
+            <dataProperty>
+               <name>isIrregular</name>
+               <value>true</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextFoot</name>
+               <range>Foot4f</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Foot4f</label>
+         <properties>
+            <dataProperty>
+               <name>syllabicScheme</name>
+               <value>ox</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Rhyme</name>
+      <instance>
+         <label>RhymeA</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>label</name>
+               <value>A</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Rhymeb</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>label</name>
+               <value>b</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+</root>

@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schemas/use-cases.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="schemas/validation-useCases.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<root>
+   <source ref="https://bardic.celt.dias.ie/displayPoem.php?firstLineID=1400"/>
+   <metadata>
+      <creator>Helena Bermúdez Sabel</creator>
+      <date format="ISO8601">2018-01-22</date>
+      <title>POSTDATA|Use-Case Bardic Poetry</title>
+      <repertory>Bardic Poetry Database</repertory>
+      <description>A test of the Domain Model v1.0 with a resource from the database Bardic Poetry Database
+         - see source</description>
+   </metadata>
+   <class>
+      <name>Opus</name>
+      <instance>
+         <label>Opus1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value>Mo-chion dot bhronnadh, a Bhriain</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>date</name>
+               <value>17th early</value>
+            </dataProperty>
+            
+            <!--            <dataProperty range="xs:string">
+               <name>genre</name>
+               <value>Thanks mp</value>
+            </dataProperty>-->
+            <dataProperty range="xs:string">
+               <name>function</name>
+               <value>Thanks mp</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>theme</name>
+               <value>Feart feile, poetic miracle</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>theme</name>
+               <value>the reading and writing of poetry</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>theme</name>
+               <value>Historical comparisons</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isFrom</name>
+               <range>Place1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>hasCreator</name>
+               <range>Creator1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>hasRole</name>
+               <range>Role1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isRealisedThrough</name>
+               <range>Redaction1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Creator</name>
+      <instance>
+         <label>Creator1</label>
+         <properties>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Redaction</name>
+      <instance>
+         <label>Redaction1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>incipit</name>
+               <value>Mo-chion dot bhronnadh, a Bhriain</value>
+            </dataProperty>
+            <dataProperty range="xs:anyURI">
+               <name>additionalFile</name>
+               <value>https://bardic.celt.dias.ie/pdf/POEM1400.pdf</value>
+            </dataProperty>
+            <objectProperty>
+               <name>considers</name>
+               <range>Witness1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>considers</name>
+               <range>Witness2</range>
+            </objectProperty>
+            <objectProperty>
+               <name>considers</name>
+               <range>Witness3</range>
+            </objectProperty>
+            <objectProperty>
+               <name>hasItem</name>
+               <range>Paratext1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>hasFirstStanza</name>
+               <range>Stanza1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>retrievesText</name>
+               <range>Location1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>WorkPattern1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isAnalysedThrough</name>
+               <range>StanzaPattern1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   
+   <class>
+      <name>Stanza</name>
+      <instance>
+         <label>Stanza1</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>1</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza2</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>2</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line5</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza3</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>3</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line9</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza4</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza4</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>4</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line13</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza5</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza5</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>5</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line17</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza6</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza6</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>6</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line21</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza7</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza7</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>7</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line25</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza8</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza8</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>8</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line29</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza9</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza9</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>9</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line33</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza10</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza10</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>10</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line37</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza11</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza11</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>11</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line41</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza12</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza12</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>12</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line45</range>
+            </objectProperty>
+            <objectProperty>
+               <name>nextStanza</name>
+               <range>Stanza13</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Stanza13</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>stanzaNumber</name>
+               <value>13</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasFirstLine</name>
+               <range>Line49</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Line</name>
+      <instance>
+         <label>Line1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Mo chion dot bhronnadh, a Bhriain,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>a mhic na flatha a finnChliaigh,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>a aistrigh an toirbheirt truim,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line4</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line4</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>h’aisgidh badh oirdheirc aguinn.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line5</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Ní chuala go bhfuair ollamh</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line6</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line6</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>meadh don aisgidh fhuaramar;</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line7</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line7</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>dot ghruaidh ttaidhleach téid a mheas</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line8</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line8</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>tar mhéid ainbhreath na n-éigeas.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line9</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Cearc Bhoirche fhréimhe Rosa,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line10</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line10</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>fhuair clú d’fhine Fhearghosa,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line11</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line11</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ger chúis iomráidh a hainm sin,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line12</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line12</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ní gairm ionráidh mar aisgidh.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line13</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Ó Mhaoil Sheachluinn eacht oile</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line14</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line14</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>d’ardollamh fhóid Ughoine,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line15</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line15</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>nírbh iongnadh, tarla ar a thoil,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line16</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line16</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>fionnbhrugh Banbha re bliadhoin.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line17</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Nír chosmhail a chur a suim</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line18</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line18</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>síneadh cinn do Choin Chuluinn,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line19</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line19</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>d’fhior tuaighe táinic tar sál,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line20</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line20</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ó ráinic uaidhe iomshlán.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line21</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Eochaidh eachtach na n-arm nglan,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line22</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line22</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ní thug acht éanshúil d’ollamh,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line23</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line23</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>giodh toirbheartus do thuair teann,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line24</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line24</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>le bhfuair oirdhearcus Éireann.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line25</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Do dhearlaic sibhsi, asé a shuim,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line26</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line26</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>tré bheith ’na n-amhghar oruinn,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line27</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line27</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>do dhá ghoirmdhearc dhamhsa am dhall,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line28</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line28</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>almsa bhus oirdhearc agam.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line29</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Do-bhéaradh, a bharr na mionn,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line30</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line30</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>dámadh leis aoibhnios Éirionn</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line31</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line31</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ar son a radhairc, rún grinn,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line32</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line32</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>dhúnn, ’s a thabhairt fá thuairim.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line33</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Gi-bé do bhronn a dhá rosg,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line34</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line34</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>fá chrodh ní cóir a theagosg,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line35</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line35</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>barr gleannach dá ttarla ar ttol,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line36</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line36</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>eallach Banbha do bhronnfadh.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line37</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>A ttugsat cách, beag a bhrígh,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line38</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line38</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>d’Aithirne is d’Eochaidh Éigsín,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line39</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line39</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>ar mheas lóigh na ngormrosg nglan</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line40</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line40</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>an dornasg óir níorbh iongnadh.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line41</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Ní thuigim nach feart féile</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line42</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line42</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>fuarus uait gan aimhréidhe,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line43</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line43</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>do radharc, a thaobh mar thuinn,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line44</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line44</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>’s an t-amharc mar aon aguinn.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line45</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Gá ttám ris, ní rádh brége,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line46</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line46</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>go bráth, a mhic Mairgréige,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line47</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line47</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>biad mar mhalairt, más lór lat,</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line48</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line48</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>do lógh bhur n-amhairc agat.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+
+      <instance>
+         <label>Line49</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Go n-íoca Dia red dhreich ndil</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line50</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line50</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>bronnadh le léighim litir</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line51</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line51</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>is ré sgríobhuim seal mar so</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line52</range>
+            </objectProperty>
+         </properties>
+      </instance>
+
+      <instance>
+         <label>Line52</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>is mo chean d’fhíorroinn m’anmo.</value>
+            </dataProperty>
+         </properties>
+      </instance>
+
+   </class>
+
+   <class>
+      <name>Location</name>
+      <instance>
+         <label>Location1</label>
+         <properties>
+            <dataProperty>
+               <name>workNumber</name>
+               <value>poem 14</value>
+            </dataProperty>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   
+   <class>
+      <name>BibliographicSource</name>
+      <instance>
+         <label>BibliographicSource1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value>Irish Bardic Poetry</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>date</name>
+               <value>1970</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>pubPlace</name>
+               <value>Dublin</value>
+            </dataProperty>
+            <objectProperty>
+               <name>hasEditor</name>
+               <range>Person2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Paratext</name>
+      <instance>
+         <label>Paratext1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>typeOfParatext</name>
+               <value>Apologue</value>
+            </dataProperty>
+            <dataProperty>
+               <name>class</name>
+               <value>Cearc Boirche</value>
+            </dataProperty>
+            <dataProperty>
+               <name>class</name>
+               <value>Fled Bricrenn</value>
+            </dataProperty>
+            <dataProperty>
+               <name>class</name>
+               <value>Maoileachlainn gives kgshp to MacCoise</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Person</name>
+      <instance>
+         <label>Person1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>surname</name>
+               <value>O Corcrain</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>forename</name>
+               <value>Brian</value>
+            </dataProperty>
+            <dataProperty>
+               <name>altName</name>
+               <value>BOCD</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>surname</name>
+               <value>Bergin</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>forename</name>
+               <value>Osborn</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>surname</name>
+               <value>MagUidhir</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>forename</name>
+               <value>Brian</value>
+            </dataProperty>
+            <dataProperty>
+               <name>deathDate</name>
+               <value>1632</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Role</name>
+      <instance>
+         <label>Role1</label>
+         <properties>
+            <dataProperty>
+               <name>function</name>
+               <value>sponsor</value>
+            </dataProperty>
+            <dataProperty>
+               <name>certainty</name>
+               <value>3</value>
+            </dataProperty>
+            <objectProperty>
+               <name>isAssignedTo</name>
+               <range>Person3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>Place</name>
+      <instance>
+         <label>Place1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>region</name>
+               <value>Ulster</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>PrimarySource</name>
+      <instance>
+         <label>PrimarySource1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value>RIA 625 (3/C/12) O’Curry trscr. BOCD</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>PrimarySource2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value>Book of O’Conor Don</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>date</name>
+               <value>c. 1631</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>PrimarySource3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>title</name>
+               <value>transl. Bergin IBP no. 14</value>
+            </dataProperty>
+            <dataProperty range="xs:boolean">
+               <name>isPrint</name>
+               <value>true</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+   <class>
+      <name>Witness</name>
+      <instance>
+         <label>Witness1</label>
+         <properties>
+            <objectProperty>
+               <name>isPart</name>
+               <range>PrimarySource1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Witness2</label>
+         <properties>
+            <objectProperty>
+               <name>isPart</name>
+               <range>PrimarySource2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Witness3</label>
+         <properties>
+            <objectProperty>
+               <name>isPart</name>
+               <range>PrimarySource3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>WorkPattern</name>
+      <instance>
+         <label>WorkPattern1</label>
+         <properties>
+            <dataProperty range="xs:integer">
+               <name>numberOfStanzas</name>
+               <value>13</value>
+            </dataProperty>
+            <dataProperty>
+               <name>typeOfRhymeMatching</name>
+               <value>deibhidhe</value>
+            </dataProperty>
+            <dataProperty range="xs:string">
+               <name>notes</name>
+               <value>length: short</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+<class>
+   <name>StanzaPattern</name>
+   <instance>
+      <label>StanzaPattern1</label>
+      <properties>
+         <dataProperty range="xs:string">
+            <name>metricalType</name>
+            <value>qq</value>
+         </dataProperty>
+      </properties>
+   </instance>
+</class>
+</root>

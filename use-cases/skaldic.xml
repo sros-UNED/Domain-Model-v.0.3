@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schemas/use-cases.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="schemas/validation-useCases.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<root>
+   <source ref="http://skaldic.abdn.ac.uk/m.php?p=verse&amp;i=28576"/>
+
+   <metadata>
+      <creator>Patrícia Garrido Teixeira</creator>
+      <creator>Mariana Curado Malta </creator>
+      <editor>Mariana Curado Malta</editor>
+      <date format="ISO8601">20171204</date>
+      <title>POSTDATA|Use-Case Skaldic</title>
+      <repertory>Skaldic Project</repertory>
+      <description>A test of the Domain Model v1.0 with a resource from the database Skaldic - see
+         source</description>
+   </metadata>
+  
+   
+   <class>
+      <name>Opus</name>
+      <instance>
+         <label>Opus1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>literaryPeriod</name>
+               <value>Viking Period</value>
+            </dataProperty>
+            <objectProperty corresp="realises">
+               <name>isRealisedThrough</name>
+               <range>Redaction1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Redaction</name>
+      <instance>
+         <label>Redaction1</label>
+         <properties>
+            <objectProperty corresp="isEditor">
+               <name>hasEditor</name>
+               <range>Person1</range>
+            </objectProperty>
+            <dataProperty range="xs:string">
+               <name>typeOfRedaction</name>
+               <value>scholarly curated</value>
+            </dataProperty>
+            <objectProperty corresp="isConsideredBy" cardinality="*">
+               <name>considers</name>
+               <range>Witness1</range>
+            </objectProperty>
+            <objectProperty corresp="isFirstLine" cardinality="*">
+               <name>hasFirstLine</name>
+               <range>Line1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isEditedIn</name>
+               <range>Location1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isEditedIn</name>
+               <range>Location2</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isEditedIn</name>
+               <range>Location3</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isEditedIn</name>
+               <range>Location4</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isEditedIn</name>
+               <range>Location5</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   
+   <class>
+      <name>Line</name>
+      <instance>
+         <label>Line1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>Þórðr ok Þórunnr</value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line2</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>þenna reistu stein </value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Line3</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>eptir Erra, </value>
+            </dataProperty>
+            <objectProperty>
+               <name>nextLine</name>
+               <range>Line4</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      
+      <instance>
+         <label>Line4</label>
+         <properties>
+            
+            <dataProperty range="xs:string">
+               <name>content</name>
+               <value>algóðan dreng.</value>
+            </dataProperty>
+            
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Witness</name>
+      <instance>
+         <label>Witness1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>siglum</name>
+               <value>Run Vg 32VI</value>
+            </dataProperty>
+            <objectProperty corresp="hasPart" cardinality="?">
+               <name>isPart</name>
+               <range>PrimarySource1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   <class>
+      <name>PrimarySource</name>
+      <instance>
+         <label>PrimarySource1</label>
+         <properties>
+            <objectProperty corresp="isTheOriginOf">
+               <name>isFrom</name>
+               <range>Place1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Place</name>
+      <instance>
+         <label>Place1</label>
+         <properties>
+            <dataProperty range="xs:string">
+               <name>name</name>
+               <value>Västergötland</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+  
+
+<class>
+   <name>BibliographicSource</name>
+   <instance>
+      <label>BibliographicSource1</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>Runverser</value>
+         </dataProperty>
+         <dataProperty>
+            <name>date</name>
+            <value>1887-91</value>
+         </dataProperty>
+         <dataProperty>
+            <name>series</name>
+            <value>Antiqvarisk tidskrift för Sverige</value>
+         </dataProperty>
+         <dataProperty>
+            <name>seriesNumber</name>
+            <value>10</value>
+         </dataProperty>
+         <dataProperty>
+            <name>pubPlace</name>
+            <value>Stockholm</value>
+         </dataProperty>
+         <dataProperty>
+            <name>publisher</name>
+            <value>Ivar Hæggström</value>
+         </dataProperty>
+         <objectProperty>
+            <name>hasCreator</name>
+            <range>Creator1</range>
+         </objectProperty>
+      </properties>
+   </instance>
+   <instance>
+      <label>BibliographicSource2</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>Västergötlands runinskrifter</value>
+         </dataProperty>
+         <dataProperty>
+            <name>date</name>
+            <value>1940-70</value>
+         </dataProperty>
+         <dataProperty>
+            <name>series</name>
+            <value>Sveriges runinskrifter</value>
+         </dataProperty>
+         <dataProperty>
+            <name>seriesNumber</name>
+            <value>5</value>
+         </dataProperty>
+         <dataProperty>
+            <name>pubPlace</name>
+            <value>Stockholm</value>
+         </dataProperty>
+         <dataProperty>
+            <name>publisher</name>
+            <value>Almqvist &amp; Wiksell</value>
+         </dataProperty>
+         <objectProperty>
+            <name>hasEditor</name>
+            <range>Person3</range>
+         </objectProperty>
+         <objectProperty>
+            <name>hasEditor</name>
+            <range>Person4</range>
+         </objectProperty>
+      </properties>
+   </instance>
+   <instance>
+      <label>BibliographicSource3</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>Runstenen i Kållands Åsaka</value>
+         </dataProperty>
+         <dataProperty>
+            <name>date</name>
+            <value>1959</value>
+         </dataProperty>
+         <dataProperty>
+            <name>volumeNumber</name>
+            <value>74</value>
+         </dataProperty>
+         <dataProperty>
+            <name>scope</name>
+            <value>227-35</value>
+         </dataProperty>
+         <objectProperty>
+            <name>hasCreator</name>
+            <range>Creator2</range>
+         </objectProperty>
+         <objectProperty>
+            <name>isPart</name>
+            <range>BibliographicSource3b</range>
+         </objectProperty>
+      </properties>
+   </instance>
+   <instance>
+      <label>BibliographicSource3b</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>ANF</value>
+         </dataProperty>
+      </properties>
+   </instance>
+   <instance>
+      <label>BibliographicSource4</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>Schwedische Runendichtung der Wikingerzeit</value>
+         </dataProperty>
+         <dataProperty>
+            <name>date</name>
+            <value>1996</value>
+         </dataProperty>
+         <dataProperty>
+            <name>series</name>
+            <value>Runrön</value>
+         </dataProperty>
+         <dataProperty>
+            <name>seriesNumber</name>
+            <value>10</value>
+         </dataProperty>
+         <dataProperty>
+            <name>pubPlace</name>
+            <value>Uppsala</value>
+         </dataProperty>
+         <dataProperty>
+            <name>publisher</name>
+            <value>Institutionen för nordiska språk, Uppsala universitet</value>
+         </dataProperty>
+         <objectProperty>
+            <name>hasCreator</name>
+            <range>Creator3</range>
+         </objectProperty>
+      </properties>
+   </instance>
+   <instance>
+      <label>BibliographicSource5</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>Review of Frank Hübler. 1996. Schwedische Runendichtung der Wikingerzeit. Runrön 10. Uppsala: Institutionen för nordiska språk, Uppsala universitet</value>
+         </dataProperty>
+         <dataProperty>
+            <name>date</name>
+            <value>1998</value>
+         </dataProperty>
+         <dataProperty>
+            <name>volumeNumber</name>
+            <value>8</value>
+         </dataProperty>
+         <dataProperty>
+            <name>scope</name>
+            <value>93-7</value>
+         </dataProperty>
+         <objectProperty>
+            <name>hasCreator</name>
+            <range>Creator4</range>
+         </objectProperty>
+         <objectProperty>
+            <name>isPart</name>
+            <range>BibliographicSource5b</range>
+         </objectProperty>
+      </properties>
+   </instance>
+   <instance>
+      <label>BibliographicSource5b</label>
+      <properties>
+         <dataProperty>
+            <name>title</name>
+            <value>ALV</value>
+         </dataProperty>
+      </properties>
+   </instance>
+</class>
+   
+   <class>
+      <name>Location</name>
+      <instance>
+         <label>Location1</label>
+         <properties>
+            <dataProperty>
+               <name>locus</name>
+               <value>367-8</value>
+            </dataProperty>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource1</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Location2</label>
+         <properties>
+            <dataProperty>
+               <name>locus</name>
+               <value>49-50</value>
+            </dataProperty>
+            <dataProperty>
+               <name>identifier</name>
+               <value>Pl. 28</value>
+            </dataProperty>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Location3</label>
+         <properties>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource3</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Location4</label>
+         <properties>
+            <dataProperty>
+               <name>locus</name>
+               <value>45</value>
+            </dataProperty>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource4</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Location5</label>
+         <properties>
+            <dataProperty>
+               <name>locus</name>
+               <value>98</value>
+            </dataProperty>
+            <objectProperty>
+               <name>refersAsPart</name>
+               <range>BibliographicSource5</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Creator</name>
+      <instance>
+         <label>Creator1</label>
+         <properties>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person1</range>
+            </objectProperty>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person2</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Creator2</label>
+         <properties>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person5</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Creator3</label>
+         <properties>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person6</range>
+            </objectProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Creator4</label>
+         <properties>
+            <objectProperty>
+               <name>isA</name>
+               <range>Person7</range>
+            </objectProperty>
+         </properties>
+      </instance>
+   </class>
+   
+   <class>
+      <name>Person</name>
+      <instance>
+         <label>Person1</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Brate</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Erik</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person2</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Bugge</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Sophus</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person3</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Jungner</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Hugo</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person4</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Svärdström</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Elisabeth</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person5</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Salberger</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Evert</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person6</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Hübler</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Frank</value>
+            </dataProperty>
+         </properties>
+      </instance>
+      <instance>
+         <label>Person7</label>
+         <properties>
+            <dataProperty>
+               <name>surname</name>
+               <value>Wulf</value>
+            </dataProperty>
+            <dataProperty>
+               <name>forename</name>
+               <value>Fred</value>
+            </dataProperty>
+         </properties>
+      </instance>
+   </class>
+
+</root>
