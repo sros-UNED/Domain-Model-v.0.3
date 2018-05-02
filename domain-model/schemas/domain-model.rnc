@@ -1,0 +1,25 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+start = root
+root = element root {class+}
+class = element class {uml?, name, desc, properties}
+uml = attribute uml {"yes"}
+name = element name {text}
+desc = element desc {mixed{(term |eg | i| b | lb)*}}
+properties = element properties {(dataProperty | objectProperty)+}
+dataProperty = element dataProperty {range1, cv?, corresp1?, cardinality, name, label, desc}
+cv = attribute cv {"yes"}
+corresp1 = attribute corresp {text}
+objectProperty = element objectProperty {corresp,  cardinality, name, range2, label?, desc}
+range1 = attribute range {text}
+range2 = element range {text}
+cardinality = attribute cardinality {text}
+corresp = attribute corresp {text}
+label = element label {mixed{(i|b)*}}
+
+# Style/format elements:
+term = element term {text}
+lb = element lb {empty}
+b = element b {text}
+i = element i {text}
+eg = element eg {mixed{(i | b | lb | term)*}}
